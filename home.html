@@ -22,7 +22,7 @@
 <img src="./assets/Group.png" class="h-[50px] " alt="">
 
 <div class="ml-3">
-    <h2 class="font-bold">$<span id="balance">450000</span></h2>
+    <h2 class="font-bold">$<span id="balance">45000</span></h2>
     <p class="text-[#08080880]">Available Balance</p>
 </div>
         </div>
@@ -41,13 +41,13 @@
    
 
      <div class=" min-h-[200px] grid grid-cols-3 gap-4 p-3  ">
-        <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+        <div id="add-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
             <img src="./assets/wallet1.png" class="mx-auto " alt="">
             <h2>Add Money</h2>
         </div>
-        <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+        <div id="cash-out-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
             <img src="./assets/send1.png" class="mx-auto " alt="">
-            <h2>Cashout</h2>
+            <h2>Cash Out</h2>
         </div>
         <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
             <img src="./assets/money1.png" class="mx-auto " alt="">
@@ -71,7 +71,7 @@
 
      <div class="all-form-section max-w-lg mx-auto">
         <!-- add money -->
-         <div class="mt-3">
+         <div id="add-money-parent" class="mt-3" >
             <h1 class="my-5 font-bold">Add Money</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mb-3">
@@ -83,25 +83,54 @@
   <option>Dhaka Bank</option>
 </select>
                 </div>
+<!-- Account number -->
                 <div class="mt-3">
                     
             <label class="">Account Number</label> <br>
             <input type="text" placeholder="Account number" id="account-number" class="input bg-[#f4f5f7] mt-3 rounded-3xl max-w-lg mx-auto w-full" />
-         
+         <!-- <p id="account-msg" class="text-green-600 font-bold"></p> -->
+
                 </div>
+                <!-- Amount -->
                 <div class="mt-3">
                     <label class="">Amount to Add</label> <br>
             <input type="text" placeholder="Add amount" id="amount-to-widthdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl max-w-lg mx-auto w-full" /> 
                 </div>
+
+                <!-- Account pin -->
                 <div class="mt-3">
                        <label class="">Pin Number</label> <br>
             <input type="text" placeholder="pin number" id="account-pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl max-w-lg mx-auto w-full" /> 
                 </div>
+                <button id="add-money-btn" class="btn text-white bg-[#0874F2] mt-3 w-full rounded-3xl">Add Money</button>
             </form>
          </div>
-          <button id="add-money-btn" class="btn text-white bg-[#0874F2] mt-3 w-full rounded-3xl">Add Money</button>
+          
      </div>
+    </div>
+     <!-- cash out -->
+        <div  class="all-form-section max-w-lg mx-auto" id="cash-out-parent" style="display: none;">
+          <h1 class="my-5 font-bold">Cash out</h1>
+          <form action="" class="bg-white rounded-2xl p-8">
+            <div>
+                <label class="font-semibold" for="">Agent Number</label>
+                <br/>
+                <input type="text" placeholder="Enter 11 digit number" id="agent-number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
+            <div class="mt-3">
+                <label class="font-semibold" for="">Amount</label>
+                <br/>
+                <input id="withdraw-amount" type="text" placeholder="Enter Amount to Withdraw"  class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
+            <div class="mt-3">
+                <label class="font-semibold" for="">Pin Number</label>
+                <br/>
+                <input type="text" placeholder="Enter 4 digit pin number" id="agent-pin"  class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            </div>
 
+            <button id="withdraw-btn" class="btn text-white bg-[#0874F2]  mt-5 w-full rounded-3xl" >Withdraw Money</button>
+        </form>
+        </div>
 
      <script src="./home.js"></script>
 </body>
