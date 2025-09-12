@@ -1,5 +1,7 @@
 const validPin = 1234
 
+const transactionData = []
+
 // //function to get input value
 // function getInputValueNumber (id){
 //     const inputField = document.getElementById(id)
@@ -58,11 +60,14 @@ if(pin !=validPin){
 const totalBalance = amount + balance
 document.getElementById("balance").innerText = totalBalance
 
-// ["account-number","amount-to-widthdraw","account-pin"].forEach(id => document.getElementById(id).value = "");
+const data = {
+    name:"Add Money",
+    Date: new Date().toLocaleTimeString()
+}
 
-
-
-console.log('balance')
+transactionData.push(data)
+console.log(transactionData)
+ 
 })
 
 // cash out
@@ -89,6 +94,43 @@ if(pin !=validPin){
 const totalBalance = balance - amount
 document.getElementById("balance").innerText = totalBalance
 
+const data = {
+    name:"Cash Out",
+    Date: new Date().toLocaleTimeString()
+}
+
+transactionData.push(data)
+
+console.log(transactionData)
+
+})
+
+document.getElementById("transaction-button").addEventListener("click", function(){
+
+    const transactionContainer = document.getElementById("transaction-container");
+    transactionContainer.innerText = ""
+
+    for(const data of transactionData){
+
+    const div = document.createElement("div")
+    div.innerHTML=`
+    <div class=" bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+    <div class="flex items-center">
+        <div class="p-3 rounded-full bg-[#f4f5f7]" >
+             <img src="./assets/wallet1.png" class="mx-auto " alt="">
+        </div>
+        <div class="ml-3">
+            <h1>${data.name}</h1>
+            <p>${data.Date}</p>
+        </div>
+    </div>
+    
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+   </div>
+   `
+   transactionContainer.appendChild(div)
+    
+    }
 })
 
 //function to toggle
@@ -155,16 +197,17 @@ document.getElementById("transfer-button").addEventListener("click", function(){
     // // document.getElementById("cash-out-parent").style.display = "none";
     // document.getElementById("transfer-money-parent").style.display = "block"; 
  handleToggle("transfer-money-parent")
+ handleButtonToggle("transfer-button")
 
- const formBtns = document.getElementsByClassName("form-btn")
-    for(const btn of formBtns){
-        btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
-        btn.classList.add("border-gray-300")
-    }
+//  const formBtns = document.getElementsByClassName("form-btn")
+//     for(const btn of formBtns){
+//         btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
+//         btn.classList.add("border-gray-300")
+//     }
 
-    document.getElementById("transfer-button").classList.remove("border-gray-300")
+//     document.getElementById("transfer-button").classList.remove("border-gray-300")
 
-    document.getElementById("transfer-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
+//     document.getElementById("transfer-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
 })
 //Get bonus
 document.getElementById("bonus-button").addEventListener("click", function(){
@@ -175,20 +218,27 @@ document.getElementById("bonus-button").addEventListener("click", function(){
 
 //  document.getElementById("Bonus-parent").style.display = "block"; 
  handleToggle("Bonus-parent")
+ handleButtonToggle("bonus-button")
 
- const formBtns = document.getElementsByClassName("form-btn")
-    for(const btn of formBtns){
-        btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
-        btn.classList.add("border-gray-300")
-    }
+//  const formBtns = document.getElementsByClassName("form-btn")
+//     for(const btn of formBtns){
+//         btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
+//         btn.classList.add("border-gray-300")
+//     }
 
-    document.getElementById("bonus-button").classList.remove("border-gray-300")
+//     document.getElementById("bonus-button").classList.remove("border-gray-300")
 
-    document.getElementById("bonus-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
+//     document.getElementById("bonus-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
 })
 
 //pay bill
 document.getElementById("bill-button").addEventListener("click", function(){
     handleToggle("pay-bill-parent")
      handleButtonToggle("bill-button")
+})
+
+//transaction
+document.getElementById("transaction-button").addEventListener("click", function(){
+    handleToggle("Transaction-parent")
+     handleButtonToggle("transaction-button")
 })
