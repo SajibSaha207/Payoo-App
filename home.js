@@ -100,6 +100,20 @@ function handleToggle(id){
     document.getElementById(id).style.display = "block"
 }
 
+//function to toggle buttons
+function handleButtonToggle(id){
+  const formBtns = document.getElementsByClassName("form-btn")
+    for(const btn of formBtns){
+        btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
+        btn.classList.add("border-gray-300")
+    }
+
+    document.getElementById(id).classList.remove("border-gray-300")
+
+    document.getElementById(id).classList.add("border-[#0874f2]","bg-[#0874f20d]")
+}
+
+
 //toggling feature
 
 document.getElementById("add-button")
@@ -114,16 +128,9 @@ document.getElementById("add-button")
     // document.getElementById("add-money-parent").style.display = "block";
 
     handleToggle("add-money-parent")
+    handleButtonToggle("add-button")
 
-    const formBtns = document.getElementsByClassName("form-btn")
-    for(const btn of formBtns){
-        btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
-        btn.classList.add("border-gray-300")
-    }
-
-    document.getElementById("add-button").classList.remove("border-gray-300")
-
-    document.getElementById("add-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
+  
   });  
 document.getElementById("cash-out-button")
 .addEventListener('click', function(){
@@ -136,15 +143,7 @@ document.getElementById("cash-out-button")
 // document.getElementById("cash-out-parent").style.display = "block";    
 handleToggle("cash-out-parent")
 
-const formBtns = document.getElementsByClassName("form-btn")
-    for(const btn of formBtns){
-        btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
-        btn.classList.add("border-gray-300")
-    }
-
-    document.getElementById("cash-out-button").classList.remove("border-gray-300")
-
-    document.getElementById("cash-out-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
+handleButtonToggle("cash-out-button")
 });
 
 document.getElementById("transfer-button").addEventListener("click", function(){
@@ -186,4 +185,10 @@ document.getElementById("bonus-button").addEventListener("click", function(){
     document.getElementById("bonus-button").classList.remove("border-gray-300")
 
     document.getElementById("bonus-button").classList.add("border-[#0874f2]","bg-[#0874f20d]")
+})
+
+//pay bill
+document.getElementById("bill-button").addEventListener("click", function(){
+    handleToggle("pay-bill-parent")
+     handleButtonToggle("bill-button")
 })
